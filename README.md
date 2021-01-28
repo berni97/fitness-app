@@ -1,1 +1,1 @@
-Application to track fitness data, like km run in the past week.
+This application will keep track of your sports activities.
