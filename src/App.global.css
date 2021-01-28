@@ -1,0 +1,15 @@
+/*
+ * @NOTE: Prepend a `~` to css file paths that are in your node_modules
+ *        See https://github.com/webpack-contrib/sass-loader#imports
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Quicksand&display=swap');
+@import '~semantic-ui-css/semantic.min.css';
+
+body {
+  background: linear-gradient(#5bfe2a -29.09%, #2c419e 129.35%);
+  font-family: 'Quicksand', sans-serif;
+}
+.ui.header {
+  font-family: 'Quicksand', sans-serif;
+}
