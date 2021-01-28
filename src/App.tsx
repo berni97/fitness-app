@@ -1,5 +1,4 @@
 import React from 'react';
-import './App.global.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header, Segment, Input, Dropdown } from 'semantic-ui-react';
 
