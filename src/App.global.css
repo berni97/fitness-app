@@ -13,3 +13,11 @@ body {
 .ui.header {
   font-family: 'Quicksand', sans-serif;
 }
+
+.ui.segment {
+  background-color: #36367987;
+  padding: 10px 20px 10px 20px;
+  border-left-width: 20px;
+  border-right-width: 20px;
+  border-radius: 1rem;
+}

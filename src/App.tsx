@@ -1,6 +1,13 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import { Header, Grid, Button } from 'semantic-ui-react';
+import {
+  Header,
+  Grid,
+  Button,
+  Container,
+  Divider,
+  Segment,
+} from 'semantic-ui-react';
 import SportSelection from './SportSelection';
 import KilometerFormular from './KilometerFormular';
 
@@ -13,7 +20,7 @@ const Home = () => {
   };
   return (
     <div>
-      <Grid>
+      <Grid centered>
         <Grid.Row />
         <Grid.Row>
           <Grid.Column width={3} />
@@ -36,16 +43,16 @@ const Home = () => {
         </Grid.Row>
 
         <Grid.Row>
-          <Grid.Column width={5} />
-
-          <Grid.Column textAlign="left" width={3}>
-            <KilometerFormular onEnter={handleEnterKM} />
-          </Grid.Column>
-          <Grid.Column textAlign="right" width={3}>
-            <Button>Jetzt speichern!</Button>
-          </Grid.Column>
-
-          <Grid.Column width={5} />
+          <Segment textAlign="center">
+            <Grid columns={2} relaxed="very">
+              <Grid.Column>
+                <KilometerFormular onEnter={handleEnterKM} />
+              </Grid.Column>
+              <Grid.Column>
+                <Button>Jetzt speichern!</Button>
+              </Grid.Column>
+            </Grid>
+          </Segment>
         </Grid.Row>
       </Grid>
     </div>
