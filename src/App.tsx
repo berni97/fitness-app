@@ -3,8 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Header, Grid, Button, Container, Segment } from 'semantic-ui-react';
 import SportSelection from './SportSelection';
 import DataFormular from './KilometerFormular';
+import UserForm from './UserForm';
 
 const Home = () => {
+  const [user, setUser] = React.useState('');
   const [selectedSport, setSelectedSport] = React.useState('');
   const [value, setValue] = React.useState(0);
 
@@ -33,6 +35,16 @@ const Home = () => {
             <Header as="h1">{'<FitnessApp />'}</Header>
           </Grid.Column>
         </Grid.Row>
+        <Grid.Row textAlign="left">
+          <Grid.Column>
+            <UserForm
+              handleSubmit={(name: string) => {
+                console.log('You just entered user with name: ', name);
+                setUser(name);
+              }}
+            />
+          </Grid.Column>
+        </Grid.Row>
         <Grid.Row>
           <Container textAlign="center">
             <Grid columns={1}>
@@ -59,7 +71,9 @@ const Home = () => {
                 </Grid.Column>
                 <Grid.Column>
                   <Button
-                    disabled={selectedSport === ''}
+                    disabled={
+                      selectedSport === '' || value <= 0 || Number.isNaN(value)
+                    }
                     onClick={handleSubmit}
                   >
                     Jetzt speichern!
