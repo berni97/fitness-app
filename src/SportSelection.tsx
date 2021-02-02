@@ -18,7 +18,7 @@ function SportSelection(props: any) {
     setSelected({ ...initialState, [chosenSport]: true });
   };
   return (
-    <div style={{ backgroundColor: 'transparent' }}>
+    <>
       <Button.Group>
         <Button
           onClick={() => handleSelection('run')}
@@ -51,7 +51,7 @@ function SportSelection(props: any) {
           Skitour
         </Button>
       </Button.Group>
-    </div>
+    </>
   );
 }
 
