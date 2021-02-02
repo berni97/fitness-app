@@ -18,40 +18,38 @@ function SportSelection(props: any) {
     setSelected({ ...initialState, [chosenSport]: true });
   };
   return (
-    <>
-      <Button.Group>
-        <Button
-          onClick={() => handleSelection('run')}
-          color={selected.run ? 'blue' : 'grey'}
-        >
-          Laufen
-        </Button>
-        <Button
-          onClick={() => handleSelection('cycling')}
-          color={selected.cycling ? 'blue' : 'grey'}
-        >
-          Radfahren
-        </Button>
-        <Button
-          onClick={() => handleSelection('mountaineering')}
-          color={selected.mountaineering ? 'blue' : 'grey'}
-        >
-          Bergsteigen
-        </Button>
-        <Button
-          onClick={() => handleSelection('nordic')}
-          color={selected.nordic ? 'blue' : 'grey'}
-        >
-          Langlaufen
-        </Button>
-        <Button
-          onClick={() => handleSelection('skitour')}
-          color={selected.skitour ? 'blue' : 'grey'}
-        >
-          Skitour
-        </Button>
-      </Button.Group>
-    </>
+    <div>
+      <Button
+        onClick={() => handleSelection('run')}
+        color={selected.run ? 'blue' : 'grey'}
+      >
+        Laufen
+      </Button>
+      <Button
+        onClick={() => handleSelection('cycling')}
+        color={selected.cycling ? 'blue' : 'grey'}
+      >
+        Radfahren
+      </Button>
+      <Button
+        onClick={() => handleSelection('mountaineering')}
+        color={selected.mountaineering ? 'blue' : 'grey'}
+      >
+        Bergsteigen
+      </Button>
+      <Button
+        onClick={() => handleSelection('nordic')}
+        color={selected.nordic ? 'blue' : 'grey'}
+      >
+        Langlaufen
+      </Button>
+      <Button
+        onClick={() => handleSelection('skitour')}
+        color={selected.skitour ? 'blue' : 'grey'}
+      >
+        Skitour
+      </Button>
+    </div>
   );
 }
 
