@@ -13,8 +13,13 @@ function FitnessApp() {
     setCalledHandleSubmit(true);
     setTimeout(() => setCalledHandleSubmit(false), 3000);
   }
+
   const handleSubmit = () => {
-    foo();
+    try {
+      foo();
+    } catch (err) {
+      setCalledHandleSubmit(false);
+    }
     // Push the data to the server :)
 
     // eslint-disable-next-line no-console
@@ -105,14 +110,14 @@ function FitnessApp() {
               <Grid.Column />
 
               <Grid.Column textAlign="right">
-                <p style={{ textAlign: 'center' }}>
+                <div style={{ textAlign: 'center' }}>
                   {`Dein Name: ${localStorage.getItem('user')}`}
                   <div style={{ marginTop: '10px' }}>
                     <Link to="/">
                       <Button>Benutzer wechseln</Button>
                     </Link>
                   </div>
-                </p>
+                </div>
               </Grid.Column>
             </Grid>
           </Container>
