@@ -16,7 +16,7 @@ function Home() {
           </Grid.Column>
         </Grid.Row>
 
-        <Grid.Row textAlign="left">
+        <Grid.Row>
           <Grid.Column>
             <Switch>
               <Route exact path="/fitness-app" component={FitnessApp} />

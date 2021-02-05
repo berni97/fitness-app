@@ -18,7 +18,13 @@ function SportSelection(props: any) {
     setSelected({ ...initialState, [chosenSport]: true });
   };
   return (
-    <div>
+    <div
+      style={{
+        textAlign: 'center',
+        display: 'flex',
+        justifyContent: 'space-between',
+      }}
+    >
       <Button
         onClick={() => handleSelection('run')}
         color={selected.run ? 'blue' : 'grey'}

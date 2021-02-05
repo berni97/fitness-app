@@ -6,9 +6,15 @@ import SportSelection from './SportSelection';
 
 function FitnessApp() {
   const [selectedSport, setSelectedSport] = React.useState('');
-  const [value, setValue] = React.useState(-1);
+  const [value, setValue] = React.useState(0);
+  const [calledHandleSubmit, setCalledHandleSubmit] = React.useState(false);
 
+  async function foo() {
+    setCalledHandleSubmit(true);
+    setTimeout(() => setCalledHandleSubmit(false), 3000);
+  }
   const handleSubmit = () => {
+    foo();
     // Push the data to the server :)
 
     // eslint-disable-next-line no-console
@@ -20,14 +26,13 @@ function FitnessApp() {
           : 'km')
       } -> ${selectedSport}`
     );
-    setValue(-1);
   };
   return (
     <>
-      <Grid textAlign="center">
+      <Grid>
         <Grid.Row>
-          <Container textAlign="center">
-            <Grid columns={1}>
+          <Container style={{ display: 'flex', justifyContent: 'center' }}>
+            <Grid centered columns={1} style={{ maxWidth: 600 }}>
               <Grid.Column>
                 <SportSelection
                   onSelected={(chosenSport: string) => {
@@ -36,7 +41,7 @@ function FitnessApp() {
                 />
               </Grid.Column>
               <Grid.Column>
-                <Segment>
+                <Segment style={{ width: '100%', height: '145px' }}>
                   <Grid columns={2} relaxed="very">
                     <Grid.Row>
                       <Grid.Column>
@@ -47,16 +52,43 @@ function FitnessApp() {
                         />
                       </Grid.Column>
                       <Grid.Column>
-                        <Button
-                          disabled={
-                            selectedSport === '' ||
-                            Number.isNaN(value) ||
-                            value <= 0
-                          }
-                          onClick={handleSubmit}
-                        >
-                          Jetzt speichern!
-                        </Button>
+                        <div style={{ textAlign: 'center' }}>
+                          {calledHandleSubmit ? (
+                            <div
+                              style={{
+                                marginLeft: '3%',
+                                fontSize: '30pt',
+                              }}
+                            >
+                              <span role="img" aria-labelledby="emoji">
+                                🥳
+                              </span>
+                            </div>
+                          ) : (
+                            <Button
+                              disabled={
+                                selectedSport === '' ||
+                                Number.isNaN(value) ||
+                                value <= 0
+                              }
+                              onClick={handleSubmit}
+                            >
+                              Jetzt speichern!
+                            </Button>
+                          )}
+                          {selectedSport === '' && (
+                            <div
+                              style={{
+                                marginTop: '10px',
+                                color: 'white',
+                                borderRadius: '5px',
+                                margin: '10px',
+                              }}
+                            >
+                              <span>Bitte wähle eine Sportart ;)</span>
+                            </div>
+                          )}
+                        </div>
                       </Grid.Column>
                     </Grid.Row>
                   </Grid>
@@ -73,12 +105,14 @@ function FitnessApp() {
               <Grid.Column />
 
               <Grid.Column textAlign="right">
-                {`Du bist unter dem Namen ${localStorage.getItem(
-                  'user'
-                )} angemeldet. `}
-                <Link to="/">
-                  <Button>Ausloggen</Button>
-                </Link>
+                <p style={{ textAlign: 'center' }}>
+                  {`Dein Name: ${localStorage.getItem('user')}`}
+                  <div style={{ marginTop: '10px' }}>
+                    <Link to="/">
+                      <Button>Benutzer wechseln</Button>
+                    </Link>
+                  </div>
+                </p>
               </Grid.Column>
             </Grid>
           </Container>
